@@ -8,10 +8,10 @@ import "../styles/TopicListItem.scss";
 //   label: "Nature",
 // };
 
-const TopicListItem = (props) => {
+const TopicListItem = ({ label }) => {
   return (
     <div className="topic-list__item">
-      <span>{props.topic}</span>
+      <span>{label}</span>
     </div>
   );
 };
