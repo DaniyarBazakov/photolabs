@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-const PhotoFavButton = () => {
-  const [isLiked, setIsLiked] = useState(false);  // Initialize state to track "liked" status
-
-  // Toggle the "liked" state when the icon is clicked
-  const handleClick = () => {
-    setIsLiked(prevState => !prevState);
-  };
-
+const PhotoFavButton = ({ photoId, isFavourite, toggleFavourite }) => {
   return (
-    <div className="photo-list__fav-icon" onClick={handleClick}>
+    <div
+      className="photo-list__fav-icon"
+      onClick={() => {
+        toggleFavourite(photoId);
+      }}
+    >
       <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={isLiked} />
+        {/* Use the isFavourite prop to determine the selected state */}
+        <FavIcon selected={isFavourite} />
       </div>
     </div>
   );
