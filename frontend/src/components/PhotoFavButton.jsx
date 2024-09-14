@@ -8,13 +8,12 @@ const PhotoFavButton = () => {
   // Toggle the "liked" state when the icon is clicked
   const handleClick = () => {
     setIsLiked(prevState => !prevState);
-    console.log("Icon clicked! Liked status:", !isLiked);  // Log the new state
   };
 
   return (
     <div className="photo-list__fav-icon" onClick={handleClick}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon className={isLiked ? "fav-icon--active" : "fav-icon--inactive"} />
+        <FavIcon selected={isLiked} />
       </div>
     </div>
   );
