@@ -1,34 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import HomeRoute from "./routes/HomeRoute";
-import photos from "./mocks/photos";
-import topics from "./mocks/topics";
 import PhotoDetailsModal from "./routes/PhotoDetailsModal";
+import useApplicationData from './hooks/useApplicationData';
 import "./App.scss";
 
 const App = () => {
-  const [favourites, setFavourites] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-
-  // Function to handle toggle favourite
-  const toggleFavourite = (photoId) => {
-    if (favourites.includes(photoId)) {
-      setFavourites(favourites.filter(id => id !== photoId));
-    } else {
-      setFavourites([...favourites, photoId]);
-    }
-  };
-
-  // Function to open the modal
-  const openModal = (photo) => {
-    setSelectedPhoto(photo);
-    setIsModalOpen(true);  // Set the modal as open
-  };
-
-  // Function to close the modal
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const {
+    state: { photos, topics, favourites, isModalOpen, selectedPhoto },
+    toggleFavourite,
+    openModal,
+    closeModal
+  } = useApplicationData();  // Destructure the hook
 
   return (
     <div className="App">
@@ -39,11 +21,16 @@ const App = () => {
         toggleFavourite={toggleFavourite}
         openModal={openModal}
       />
-      {isModalOpen && <PhotoDetailsModal photo={selectedPhoto} closeModal={closeModal} favourites={favourites}
-        toggleFavourite={toggleFavourite} openModal={openModal}/>}
+      {isModalOpen && (
+        <PhotoDetailsModal
+          photo={selectedPhoto}
+          closeModal={closeModal}
+          favourites={favourites}
+          toggleFavourite={toggleFavourite}
+        />
+      )}
     </div>
   );
 };
-
 
 export default App;
