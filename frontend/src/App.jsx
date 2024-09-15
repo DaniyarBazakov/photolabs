@@ -29,8 +29,7 @@ const App = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  // console.log(photos);
-  // console.log(selectedPhoto);
+
   return (
     <div className="App">
       <HomeRoute
