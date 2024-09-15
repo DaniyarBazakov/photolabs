@@ -23,7 +23,7 @@ const PhotoDetailsModal = ({ photo , closeModal, isFavourite, toggleFavourite, f
           isFavourite={isFavourite}
           toggleFavourite={toggleFavourite}
         />
-        <img src={photo.urls.regular} alt="User's photo" className="photo-details-modal__image" />
+        <img src={photo.urls.full} alt="User's photo" className="photo-details-modal__image" />
         <div className="photo-details-modal__photographer-details">
           <img src={photo.user.profile} alt="User's profile picture" className="photo-details-modal__photographer-profile" />
           <div className="photo-details-modal__photographer-info">
@@ -37,14 +37,14 @@ const PhotoDetailsModal = ({ photo , closeModal, isFavourite, toggleFavourite, f
       <div>
         <h3 className="photo-details-modal__header">Similar Photos</h3>
       
-        <div className="photo-details-modal__images">
+        <ul className="photo-details-modal__images">
           <PhotoList
             photos={photos}
             favourites={favourites}
             toggleFavourite={toggleFavourite}
             openModal={openModal}
           />
-        </div>
+        </ul>
       </div>
     </div>
   );
