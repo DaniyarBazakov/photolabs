@@ -12,7 +12,7 @@ const useApplicationData = () => {
     if (favourites.includes(photoId)) {
       setFavourites(favourites.filter(id => id !== photoId));
     } else {
-      setFavourites([...favourites, photoId]);
+      setFavourites(prevFavourites => [...prevFavourites, photoId]);
     }
   };
 
