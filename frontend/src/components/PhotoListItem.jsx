@@ -9,7 +9,7 @@ const PhotoListItem = ({ photo, isFavourite, toggleFavourite, openModal }) => {
   };
 
   return (
-    <div className="photo-list__item">
+    <li className="photo-list__item">
       <PhotoFavButton
         photoId={photo.id}
         isFavourite={isFavourite}
@@ -27,7 +27,7 @@ const PhotoListItem = ({ photo, isFavourite, toggleFavourite, openModal }) => {
           </div>
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 
