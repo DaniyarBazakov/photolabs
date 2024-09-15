@@ -23,6 +23,11 @@ const App = () => {
     setIsModalOpen(true);  // Set the modal as open
   };
 
+  // Function to close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="App">
       <HomeRoute
@@ -32,7 +37,7 @@ const App = () => {
         toggleFavourite={toggleFavourite}
         openModal={openModal}
       />
-      {isModalOpen && <PhotoDetailsModal />}
+      {isModalOpen && <PhotoDetailsModal closeModal={closeModal}/>}
     </div>
   );
 };
