@@ -29,7 +29,8 @@ const App = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
+  // console.log(photos);
+  // console.log(selectedPhoto);
   return (
     <div className="App">
       <HomeRoute
@@ -39,9 +40,11 @@ const App = () => {
         toggleFavourite={toggleFavourite}
         openModal={openModal}
       />
-      {isModalOpen && <PhotoDetailsModal photo={selectedPhoto} closeModal={closeModal}/>}
+      {isModalOpen && <PhotoDetailsModal photo={selectedPhoto} closeModal={closeModal} favourites={favourites}
+        toggleFavourite={toggleFavourite} openModal={openModal}/>}
     </div>
   );
 };
+
 
 export default App;
