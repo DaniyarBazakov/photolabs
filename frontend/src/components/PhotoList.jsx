@@ -1,7 +1,7 @@
 import React from 'react';
 import PhotoListItem from './PhotoListItem';
 
-const PhotoList = ({ photos, favourites, toggleFavourite }) => {
+const PhotoList = ({ photos, favourites, toggleFavourite, openModal }) => {
 
   return (
     <div className="photo-list">
@@ -11,6 +11,7 @@ const PhotoList = ({ photos, favourites, toggleFavourite }) => {
           photo={photo}
           isFavourite={favourites.includes(photo.id)}
           toggleFavourite={toggleFavourite}
+          openModal={openModal}
         />
       ))}
     </div>

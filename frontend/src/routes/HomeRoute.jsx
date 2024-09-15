@@ -4,7 +4,7 @@ import PhotoList from "../components/PhotoList";
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ photos, topics, favourites, toggleFavourite }) => {
+const HomeRoute = ({ photos, topics, favourites, toggleFavourite, openModal }) => {
 
   const hasFavourites = favourites.length > 0;
 
@@ -18,6 +18,7 @@ const HomeRoute = ({ photos, topics, favourites, toggleFavourite }) => {
         photos={photos}
         favourites={favourites}
         toggleFavourite={toggleFavourite}
+        openModal={openModal}
       />
     </div>
   );
