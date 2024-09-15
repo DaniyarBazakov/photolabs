@@ -3,6 +3,11 @@ import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = ({ photo, isFavourite, toggleFavourite, openModal }) => {
+
+  const handleClick = () => {
+    openModal(photo);  // Pass the clicked photo to openModal
+  };
+
   return (
     <div className="photo-list__item">
       <PhotoFavButton
@@ -10,7 +15,7 @@ const PhotoListItem = ({ photo, isFavourite, toggleFavourite, openModal }) => {
         isFavourite={isFavourite}
         toggleFavourite={toggleFavourite}
       />
-      <div onClick={openModal}>
+      <div onClick={handleClick}>
         <img src={photo.urls.regular} alt="User's photo" className="photo-list__image" />
         <div className="photo-list__user-details">
           <img src={photo.user.profile} alt="User's profile picture" className="photo-list__user-profile" />

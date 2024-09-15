@@ -8,6 +8,7 @@ import "./App.scss";
 const App = () => {
   const [favourites, setFavourites] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   // Function to handle toggle favourite
   const toggleFavourite = (photoId) => {
@@ -19,7 +20,8 @@ const App = () => {
   };
 
   // Function to open the modal
-  const openModal = () => {
+  const openModal = (photo) => {
+    setSelectedPhoto(photo);
     setIsModalOpen(true);  // Set the modal as open
   };
 
@@ -37,7 +39,7 @@ const App = () => {
         toggleFavourite={toggleFavourite}
         openModal={openModal}
       />
-      {isModalOpen && <PhotoDetailsModal closeModal={closeModal}/>}
+      {isModalOpen && <PhotoDetailsModal photo={selectedPhoto} closeModal={closeModal}/>}
     </div>
   );
 };
