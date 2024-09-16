@@ -38,23 +38,26 @@ const useApplicationData = () => {
   useEffect(() => {
     const fetchData = async() => {
       try {
-        // Fetch photo data
-        const photoResponse = await fetch('/api/photos');
+        // Use Promise.all to fetch photo and topic data concurrently
+        const [photoResponse, topicResponse] = await Promise.all([
+          fetch('/api/photos'),
+          fetch('/api/topics')
+        ]);
+  
         const photoData = await photoResponse.json();
-        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData });
-
-        // Fetch topic data
-        const topicResponse = await fetch('/api/topics');
         const topicData = await topicResponse.json();
+  
+        // Dispatch both responses to state
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData });
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData });
-
+  
       } catch (err) {
         console.error("Error fetching data:", err);
       }
     };
-
+  
     fetchData();
-  }, []);  // Empty dependency array to run the effect only once
+  }, []);
 
   const fetchPhotosByTopic = async(topicId) => {
     try {
