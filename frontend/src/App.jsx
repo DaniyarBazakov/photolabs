@@ -9,7 +9,8 @@ const App = () => {
     state: { photoData, topicData, favourites, isModalOpen, selectedPhoto },
     toggleFavourite,
     openModal,
-    closeModal
+    closeModal,
+    fetchPhotosByTopic
   } = useApplicationData();  // Destructure the hook
 
   return (
@@ -20,6 +21,7 @@ const App = () => {
         favourites={favourites}
         toggleFavourite={toggleFavourite}
         openModal={openModal}
+        fetchPhotosByTopic={fetchPhotosByTopic}
       />
       {isModalOpen && (
         <PhotoDetailsModal

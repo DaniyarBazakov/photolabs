@@ -56,6 +56,17 @@ const useApplicationData = () => {
     fetchData();
   }, []);  // Empty dependency array to run the effect only once
 
+  const fetchPhotosByTopic = async(topicId) => {
+    try {
+      console.log(`Fetching photos for topic: ${topicId}`);
+      const response = await fetch(`/api/topics/photos/${topicId}`);
+      const data = await response.json();
+      dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
+    } catch (err) {
+      console.error("Error fetching photos by topic:", err);
+    }
+  };
+
   return {
     state,
     toggleFavourite: (photoId) => {
@@ -66,7 +77,8 @@ const useApplicationData = () => {
       }
     },
     openModal: (photo) => dispatch({ type: ACTIONS.SELECT_PHOTO, photo }),
-    closeModal: () => dispatch({ type: ACTIONS.CLOSE_MODAL })
+    closeModal: () => dispatch({ type: ACTIONS.CLOSE_MODAL }),
+    fetchPhotosByTopic
   };
 };
 

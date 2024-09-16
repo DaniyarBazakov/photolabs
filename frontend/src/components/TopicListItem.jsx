@@ -1,10 +1,10 @@
 import React from "react";
 import "../styles/TopicListItem.scss";
 
-const TopicListItem = ({ label }) => {
+const TopicListItem = ({ topic, onTopicClick }) => {
   return (
     <div className="topic-list__item">
-      <span>{label}</span>
+      <span onClick={() => onTopicClick(topic.id)}>{topic.title}</span>
     </div>
   );
 };

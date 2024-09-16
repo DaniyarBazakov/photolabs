@@ -4,7 +4,7 @@ import PhotoList from "../components/PhotoList";
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ photos, topics, favourites, toggleFavourite, openModal }) => {
+const HomeRoute = ({ photos, topics, favourites, toggleFavourite, openModal, fetchPhotosByTopic }) => {
 
   const hasFavourites = favourites.length > 0;
 
@@ -13,6 +13,7 @@ const HomeRoute = ({ photos, topics, favourites, toggleFavourite, openModal }) =
       <TopNavigationBar
         topics={topics}
         hasFavourites={hasFavourites}
+        fetchPhotosByTopic={fetchPhotosByTopic}
       />
       <PhotoList
         photos={photos}
