@@ -6,7 +6,7 @@ import "./App.scss";
 
 const App = () => {
   const {
-    state: { photos, topics, favourites, isModalOpen, selectedPhoto },
+    state: { photoData, topicData, favourites, isModalOpen, selectedPhoto },
     toggleFavourite,
     openModal,
     closeModal
@@ -15,8 +15,8 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute
-        photos={photos}
-        topics={topics}
+        photos={photoData}  // Use photoData instead of photos
+        topics={topicData}  // Use topicData instead of topics
         favourites={favourites}
         toggleFavourite={toggleFavourite}
         openModal={openModal}
