@@ -1,6 +1,8 @@
 # react-photolabs
 PhotoLabs is a full-stack photography gallery web application where users can browse, like, and explore a variety of photos. The application is built with a React frontend and a Node.js/Express backend, using PostgreSQL as the database.
 
+![](https://github.com/DaniyarBazakov/photolabs/blob/main/img/Recording%202024-09-19%20at%2010.47.42.gif)
+
 ## Features
 
 - **Browse Photos**: Explore beautiful photos organized by topic.
