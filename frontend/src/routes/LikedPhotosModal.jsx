@@ -10,26 +10,28 @@ const LikedPhotosModal = ({ favourites, photoData, toggleLikedPhotosModal, toggl
 
   return (
     <div className="modal">
-      <div className="modal-content">
-        {/* Close button */}
-        <button className="photo-details-modal__close-button" onClick={toggleLikedPhotosModal}>
-          <img src={closeSymbol} alt="close symbol" />
-        </button>
+      
+      {/* Close button */}
+      <button className="photo-details-modal__close-button" onClick={toggleLikedPhotosModal}>
+        <img src={closeSymbol} alt="close symbol" />
+      </button>
 
-        <h2>Liked Photos</h2>
+      <h2 className="photo-details-modal__header">Liked Photos</h2>
 
-        {/* Use the PhotoList component to display the list of favourite photos */}
-        <div className="photo-details-modal__images">
-          <PhotoList
-            photos={favouritePhotos}  // Pass the filtered list of favourite photos
-            favourites={favourites}   // Pass the list of favourites (photo IDs)
-            toggleFavourite={toggleFavourite}  // Pass the toggleFavourite function
-            openModal={openModal}  // Pass the function to open the modal for individual photos
-          />
-        </div>
+      {/* Use the PhotoList component to display the list of favourite photos */}
+      <div className="photo-details-modal__images">
+        <PhotoList
+          photos={favouritePhotos}  // Pass the filtered list of favourite photos
+          favourites={favourites}   // Pass the list of favourites (photo IDs)
+          toggleFavourite={toggleFavourite}  // Pass the toggleFavourite function
+          openModal={openModal}  // Pass the function to open the modal for individual photos
+        />
       </div>
+     
     </div>
   );
 };
 
 export default LikedPhotosModal;
+
+
