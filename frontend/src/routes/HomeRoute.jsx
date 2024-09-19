@@ -4,7 +4,7 @@ import PhotoList from "../components/PhotoList";  // Import the photo list compo
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ photos, topics, favourites, toggleFavourite, openModal, fetchPhotosByTopic }) => {
+const HomeRoute = ({ photos, topics, favourites, toggleFavourite, openModal, fetchPhotosByTopic, toggleLikedPhotosModal }) => {
 
   // Check if there are any favourite photos
   const hasFavourites = favourites.length > 0;
@@ -17,6 +17,7 @@ const HomeRoute = ({ photos, topics, favourites, toggleFavourite, openModal, fet
         hasFavourites={hasFavourites}   // Boolean indicating if there are any favourites
         fetchPhotosByTopic={fetchPhotosByTopic}  // Function to fetch photos for the selected topic
         favourites={favourites}
+        toggleLikedPhotosModal={toggleLikedPhotosModal}
       />
       {/* Render the photo list, passing photos, favourites, and functions to manage them */}
       <PhotoList

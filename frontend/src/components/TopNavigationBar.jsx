@@ -3,7 +3,7 @@ import FavBadge from './FavBadge';    // Import component to display favourite b
 import TopicList from './TopicList';  // Import component to display list of topics
 import '../styles/TopNavigationBar.scss';
 
-const TopNavigation = ({ topics, hasFavourites, fetchPhotosByTopic }) => {
+const TopNavigation = ({ topics, hasFavourites, fetchPhotosByTopic, toggleLikedPhotosModal }) => {
 
   // Handle topic selection by calling the fetchPhotosByTopic function with the selected topic's ID
   const handleTopicClick = (topicId) => {
@@ -18,7 +18,7 @@ const TopNavigation = ({ topics, hasFavourites, fetchPhotosByTopic }) => {
         topics={topics}  // Pass the list of topics to the TopicList component
         onTopicClick={handleTopicClick}  // Pass the handler for topic click events
       />
-      <FavBadge hasFavourites={hasFavourites}/> {/* Display badge if there are favourites */}
+      <FavBadge hasFavourites={hasFavourites} onClick={toggleLikedPhotosModal}/> {/* Display badge if there are favourites */}
     </div>
   );
 };
