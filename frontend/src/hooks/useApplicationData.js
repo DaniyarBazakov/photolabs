@@ -22,6 +22,8 @@ const reducer = (state, action) => {
   case ACTIONS.SET_TOPIC_DATA:
     // Set the fetched topic data into state
     return { ...state, topicData: action.payload };
+  case ACTIONS.TOGGLE_LIKED_PHOTOS_MODAL:
+    return { ...state, isLikedPhotosModalOpen: !state.isLikedPhotosModalOpen };  // Toggle modal state
   default:
     // Throw an error if an unsupported action type is dispatched
     throw new Error(`Unsupported action type: ${action.type}`);
@@ -34,7 +36,8 @@ const initialState = {
   isModalOpen: false,     // Whether the photo details modal is open
   selectedPhoto: null,    // The currently selected photo for modal view
   photoData: [],          // Array of photos fetched from the API
-  topicData: []           // Array of topics fetched from the API
+  topicData: [],           // Array of topics fetched from the API
+  isLikedPhotosModalOpen: false,
 };
 // Custom hook using useReducer to manage application state and actions
 const useApplicationData = () => {
@@ -79,6 +82,10 @@ const useApplicationData = () => {
     }
   };
 
+  const toggleLikedPhotosModal = () => {
+    dispatch({ type: ACTIONS.TOGGLE_LIKED_PHOTOS_MODAL });
+  };
+
   return {
     state,      // Return the current state
     toggleFavourite: (photoId) => {
@@ -91,7 +98,8 @@ const useApplicationData = () => {
     },
     openModal: (photo) => dispatch({ type: ACTIONS.SELECT_PHOTO, photo }),       // Open the modal with the selected photo
     closeModal: () => dispatch({ type: ACTIONS.CLOSE_MODAL }),      // Close the modal
-    fetchPhotosByTopic      // Return the function to fetch photos by topic
+    fetchPhotosByTopic,      // Return the function to fetch photos by topic
+    toggleLikedPhotosModal,
   };
 };
 

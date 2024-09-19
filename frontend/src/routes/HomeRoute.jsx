@@ -16,6 +16,7 @@ const HomeRoute = ({ photos, topics, favourites, toggleFavourite, openModal, fet
         topics={topics}   // Array of topics to display in the navigation
         hasFavourites={hasFavourites}   // Boolean indicating if there are any favourites
         fetchPhotosByTopic={fetchPhotosByTopic}  // Function to fetch photos for the selected topic
+        favourites={favourites}
       />
       {/* Render the photo list, passing photos, favourites, and functions to manage them */}
       <PhotoList

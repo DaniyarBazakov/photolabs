@@ -5,5 +5,6 @@ export const ACTIONS = {
   SELECT_PHOTO: 'SELECT_PHOTO',               // Action type for selecting a photo to view in the modal
   CLOSE_MODAL: 'CLOSE_MODAL',                 // Action type for closing the modal
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',           // Action type for setting the fetched photo data
-  SET_TOPIC_DATA: 'SET_TOPIC_DATA'            // Action type for setting the fetched topic data
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',            // Action type for setting the fetched topic data
+  TOGGLE_LIKED_PHOTOS_MODAL: 'TOGGLE_LIKED_PHOTOS_MODAL',
 };
