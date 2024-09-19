@@ -15,6 +15,7 @@ const App = () => {
     toggleLikedPhotosModal
   } = useApplicationData();  // Destructure the hook
 
+
   return (
     <div className="App">
       <HomeRoute
@@ -37,7 +38,9 @@ const App = () => {
       {/* Conditionally render the modal */}
       {/* Use the new LikedPhotosModal component */}
       {isLikedPhotosModalOpen && (
-        <LikedPhotosModal toggleLikedPhotosModal={toggleLikedPhotosModal} />
+        <LikedPhotosModal toggleLikedPhotosModal={toggleLikedPhotosModal}
+          favourites={favourites}
+          photoData={photoData}/>
       )}
     </div>
   );
